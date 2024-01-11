@@ -26,6 +26,7 @@
   border: 1px solid var(--nc-color-elements-4);
   border-top: none;
   transition: height 250ms;
+  z-index: 2;
 }
 
 .nc_modalClosingAnimation {

@@ -299,7 +299,7 @@ export class NightlySelector extends LitElement {
       <div
         class="nc_modalOverlay ${this.fireClosingAnimation
           ? 'nc_modalClosingAnimation'
-          : 'nc_modalOverlayOpeningAnimation'}"
+          : ''}"
         @click=${this.handleClose}
       >
         <div
