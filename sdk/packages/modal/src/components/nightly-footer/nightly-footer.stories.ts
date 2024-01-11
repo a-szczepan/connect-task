@@ -8,8 +8,8 @@ const meta = {
   parameters: {
     layout: 'centered'
   },
-  render: () => {
-    return html`<nightly-footer />`
+  render: (args) => {
+    return html`<nightly-footer .linkTarget=${args.linkTarget} .pivacyPolicyURL=${args.pivacyPolicyURL} .termsOfServiceURL=${args.termsOfServiceURL} />`
   }
 } satisfies Meta<NightlyFooter>
 
@@ -17,5 +17,10 @@ export default meta
 type Story = StoryObj<NightlyFooter>
 
 export const Default: Story = {
-  name: 'Default'
+  name: 'Default',
+  args: {
+    termsOfServiceURL: '/',
+    pivacyPolicyURL: '/',
+    linkTarget: '_self'
+  }
 }
