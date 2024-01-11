@@ -80,6 +80,24 @@
   }
 }
 
+@media (min-width: 641px) {
+  .nc_modalOverlayOpeningAnimation {
+    animation: 300ms linear 0s 1 fadeIn normal forwards;
+  }
+
+  .nc_modalWrapperOpeningAnimation {
+    animation: 500ms linear 0s 1 showModal normal forwards;
+  }
+
+  .nc_modalClosingAnimation {
+    animation: 500ms linear 0s 1 hideModal normal forwards;
+  }
+
+  .nc_modalWrapperClosingAnimation {
+    animation: 300ms linear 0s 1 transformOnClose normal forwards;
+  }
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -147,5 +165,47 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes showModal {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+    top: calc(50% + 20px);
+  }
+  100% {
+    opacity: 1;
+    top: 50%;
+  }
+}
+
+@keyframes hideModal {
+  0% {
+    opacity: 1;
+    backdrop-filter: blur(8px);
+  }
+  40% {
+    opacity: 1;
+    backdrop-filter: blur(8px);
+  }
+  100% {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+}
+
+@keyframes transformOnClose {
+  0% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    top: calc(50% + 20px);
   }
 }
