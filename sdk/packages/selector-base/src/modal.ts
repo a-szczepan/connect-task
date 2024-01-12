@@ -1,4 +1,8 @@
-import { type XMLOptions, type NightlySelector } from '@nightlylabs/wallet-selector-modal'
+import {
+  type XMLOptions,
+  type NightlySelector,
+  type FooterConfig
+} from '@nightlylabs/wallet-selector-modal'
 import { type IWalletListItem, type NetworkData } from './types'
 import { isMobileBrowser } from './utils'
 
@@ -22,13 +26,19 @@ export class NightlyConnectSelectorModal {
     anchorRef?: HTMLElement | null,
     variablesOverride?: object,
     stylesOverride?: string,
-    qrConfigOverride?: Partial<XMLOptions>
+    qrConfigOverride?: Partial<XMLOptions>,
+    footerConfigOverride?: Partial<FooterConfig>
   ) {
     this.walletsList = walletsList
     this._relay = relay
     this._networkData = networkData
     this._anchor = anchorRef ?? document.body
-    this.createSelectorElement(variablesOverride, stylesOverride, qrConfigOverride)
+    this.createSelectorElement(
+      variablesOverride,
+      stylesOverride,
+      qrConfigOverride,
+      footerConfigOverride
+    )
   }
 
   get walletsList() {
@@ -48,10 +58,16 @@ export class NightlyConnectSelectorModal {
   createSelectorElement = (
     variablesOverride?: object,
     stylesOverride?: string,
-    qrConfigOverride?: Partial<XMLOptions>
+    qrConfigOverride?: Partial<XMLOptions>,
+    footerConfigOverride?: Partial<FooterConfig>
   ) => {
     import('@nightlylabs/wallet-selector-modal').then(({ getNightlySelectorElement }) => {
-      this._modal = getNightlySelectorElement(variablesOverride, stylesOverride, qrConfigOverride)
+      this._modal = getNightlySelectorElement(
+        variablesOverride,
+        stylesOverride,
+        qrConfigOverride,
+        footerConfigOverride
+      )
       this._modal.onClose = this.onCloseModal
 
       this._modal.relay = this._relay
