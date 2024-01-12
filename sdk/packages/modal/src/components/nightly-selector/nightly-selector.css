@@ -4,10 +4,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  animation: 100ms ease-out 0s 1 fadeIn normal forwards;
+  animation: 500ms linear 0s 1 blurOverlay normal forwards;
   z-index: 100;
   background-color: var(--nc-color-overlay);
-  backdrop-filter: blur(10px);
 }
 
 .nc_modalWrapper {
@@ -27,10 +26,11 @@
   border: 1px solid var(--nc-color-elements-4);
   border-top: none;
   transition: height 250ms;
+  z-index: 2;
 }
 
 .nc_modalClosingAnimation {
-  animation: 100ms ease-out 0s 1 fadeOut normal forwards;
+  animation: 500ms linear 0s 1 unblurOverlay normal forwards;
 }
 
 .nc_modalViewEntryTransition {
@@ -50,12 +50,6 @@
 }
 
 @media (max-width: 640px) {
-  .nc_modalOverlay {
-    animation: 250ms ease-out 0s 1 fadeInMobile normal forwards;
-    background-color: transparent;
-    backdrop-filter: blur(0);
-  }
-
   .nc_modalWrapper {
     top: unset;
     left: unset;
@@ -77,6 +71,16 @@
 
   .nc_modalMobileSlideOutAnimation {
     animation: 250ms ease-out 0s 1 slideOut normal forwards;
+  }
+}
+
+@media (min-width: 641px) {
+  .nc_modalWrapperOpeningAnimation {
+    animation: 500ms linear 0s 1 fadeInAndSlide normal forwards;
+  }
+
+  .nc_modalWrapperClosingAnimation {
+    animation: 300ms linear 0s 1 fadeOutAndSlide normal forwards;
   }
 }
 
@@ -147,5 +151,54 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes fadeInAndSlide {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+    top: calc(50% + 20px);
+  }
+  100% {
+    opacity: 1;
+    top: 50%;
+  }
+}
+
+@keyframes fadeOutAndSlide {
+  0% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    top: calc(50% + 20px);
+  }
+}
+
+@keyframes blurOverlay {
+  0% {
+    backdrop-filter: none;
+    opacity: 0;
+  }
+  100% {
+    backdrop-filter: blur(8px);
+    opacity: 1;
+  }
+}
+
+@keyframes unblurOverlay {
+  0% {
+    backdrop-filter: blur(8px);
+    opacity: 1;
+  }
+  100% {
+    backdrop-filter: none;
+    opacity: 0;
   }
 }

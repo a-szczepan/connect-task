@@ -12,6 +12,12 @@ export interface WalletSelectorItem {
   recent?: boolean
 }
 
+export interface FooterConfig {
+  termsOfServiceURL?: string
+  privacyPolicyURL?: string
+  linkTarget?: '_self' | '_blank' | '_parent' | '_top'
+}
+
 export enum SelectorView {
   DESKTOP_MAIN,
   MOBILE_MAIN,

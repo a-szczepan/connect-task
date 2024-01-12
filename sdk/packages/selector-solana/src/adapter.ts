@@ -16,7 +16,8 @@ import {
   triggerConnect,
   persistStandardDisconnectForNetwork,
   sleep,
-  XMLOptions
+  XMLOptions,
+  FooterConfig
 } from '@nightlylabs/wallet-selector-base'
 import {
   BaseMessageSignerWalletAdapter,
@@ -159,7 +160,8 @@ export class NightlyConnectAdapter extends BaseMessageSignerWalletAdapter {
     uiOverrides?: {
       variablesOverride?: object
       stylesOverride?: string
-      qrConfigOverride?: Partial<XMLOptions>
+      qrConfigOverride?: Partial<XMLOptions>,
+      footerConfigOverride?: Partial<FooterConfig>
     }
   ) => {
     const adapter = new NightlyConnectAdapter(appInitData, eagerConnectForStandardWallets)
@@ -184,7 +186,8 @@ export class NightlyConnectAdapter extends BaseMessageSignerWalletAdapter {
       anchorRef,
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
-      uiOverrides?.qrConfigOverride
+      uiOverrides?.qrConfigOverride,
+      uiOverrides?.footerConfigOverride
     )
 
     const [app, metadataWallets] = await NightlyConnectAdapter.initApp(appInitData)
@@ -209,6 +212,7 @@ export class NightlyConnectAdapter extends BaseMessageSignerWalletAdapter {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
+      footerConfigOverride?: Partial<FooterConfig>
     }
   ) => {
     const adapter = new NightlyConnectAdapter(appInitData, eagerConnectForStandardWallets)
@@ -233,7 +237,8 @@ export class NightlyConnectAdapter extends BaseMessageSignerWalletAdapter {
       anchorRef,
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
-      uiOverrides?.qrConfigOverride
+      uiOverrides?.qrConfigOverride,
+      uiOverrides?.footerConfigOverride
     )
 
     adapter._loading = true
@@ -262,6 +267,7 @@ export class NightlyConnectAdapter extends BaseMessageSignerWalletAdapter {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
+      footerConfigOverride?: Partial<FooterConfig>
     }
   ) => {
     const adapter = new NightlyConnectAdapter(appInitData, eagerConnectForStandardWallets, true)
@@ -286,7 +292,8 @@ export class NightlyConnectAdapter extends BaseMessageSignerWalletAdapter {
       anchorRef,
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
-      uiOverrides?.qrConfigOverride
+      uiOverrides?.qrConfigOverride,
+      uiOverrides?.footerConfigOverride
     )
 
     return adapter

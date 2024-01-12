@@ -1,5 +1,6 @@
 import { type AppBaseInitialize } from '@nightlylabs/nightly-connect-base'
 import { type Deeplink } from '@nightlylabs/nightly-connect-base/dist/types/bindings/Deeplink'
+import { FooterConfig } from '@nightlylabs/wallet-selector-modal'
 import { type Wallet } from '@wallet-standard/core'
 import { type WalletType } from '../../../bindings/WalletType'
 
@@ -32,3 +33,5 @@ export enum ConnectionType {
   Nightly = 'Nightly',
   WalletStandard = 'WalletStandard'
 }
+
+export { type FooterConfig }

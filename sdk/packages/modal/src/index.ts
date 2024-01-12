@@ -2,13 +2,16 @@ import { XMLOptions } from '@nightlylabs/qr-code'
 import './components/nightly-selector/nightly-selector'
 import { setStylesOverride, setVariablesOverride } from './shared/tailwind.element'
 import './shared/tailwind.global.css'
+import { FooterConfig } from './utils/types'
+
 export { type NightlySelector } from './components/nightly-selector/nightly-selector'
 export { type WalletSelectorItem } from './utils/types'
 
 export const getNightlySelectorElement = (
   variablesOverride?: object, // simple changes like changing global colors
   stylesOverride?: string, // more advanced changes
-  qrConfigOverride?: Partial<XMLOptions> // customization of qr codes
+  qrConfigOverride?: Partial<XMLOptions>, // customization of qr codes
+  footerConfigOverride?: Partial<FooterConfig> //customization of footer urls and target
 ) => {
   const style = document.createElement('style')
   style.textContent = `@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap');` // workaround because import in bundled styles in ignored for some reason
@@ -19,8 +22,9 @@ export const getNightlySelectorElement = (
 
   const selectorElement = document.createElement('nightly-selector')
   selectorElement.qrConfigOverride = qrConfigOverride ?? {}
+  selectorElement.footerConfigOverride = footerConfigOverride ?? {}
 
   return selectorElement
 }
 
-export { type XMLOptions }
+export { type XMLOptions, type FooterConfig }

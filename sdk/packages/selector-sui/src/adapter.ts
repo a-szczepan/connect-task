@@ -17,6 +17,7 @@ import {
   MetadataWallet,
   NightlyConnectSelectorModal,
   XMLOptions,
+  FooterConfig,
   clearRecentStandardWalletForNetwork,
   clearSessionIdForNetwork,
   getRecentStandardWalletForNetwork,
@@ -142,6 +143,7 @@ export class NightlyConnectSuiAdapter {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
+      footerConfigOverride?: Partial<FooterConfig>
     }
   ) => {
     const adapter = new NightlyConnectSuiAdapter(appInitData, eagerConnectForStandardWallets)
@@ -161,7 +163,8 @@ export class NightlyConnectSuiAdapter {
       anchorRef,
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
-      uiOverrides?.qrConfigOverride
+      uiOverrides?.qrConfigOverride,
+      uiOverrides?.footerConfigOverride
     )
 
     const [app, metadataWallets] = await NightlyConnectSuiAdapter.initApp(appInitData)
@@ -185,6 +188,7 @@ export class NightlyConnectSuiAdapter {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
+      footerConfigOverride?: Partial<FooterConfig>
     }
   ) => {
     const adapter = new NightlyConnectSuiAdapter(appInitData, eagerConnectForStandardWallets)
@@ -204,7 +208,8 @@ export class NightlyConnectSuiAdapter {
       anchorRef,
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
-      uiOverrides?.qrConfigOverride
+      uiOverrides?.qrConfigOverride,
+      uiOverrides?.footerConfigOverride
     )
 
     adapter._loading = true
@@ -230,6 +235,7 @@ export class NightlyConnectSuiAdapter {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
+      footerConfigOverride?: Partial<FooterConfig>
     }
   ) => {
     const adapter = new NightlyConnectSuiAdapter(appInitData, eagerConnectForStandardWallets, true)
@@ -250,7 +256,8 @@ export class NightlyConnectSuiAdapter {
       anchorRef,
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
-      uiOverrides?.qrConfigOverride
+      uiOverrides?.qrConfigOverride,
+      uiOverrides?.footerConfigOverride
     )
 
     return adapter

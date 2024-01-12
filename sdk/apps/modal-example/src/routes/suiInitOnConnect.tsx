@@ -18,7 +18,12 @@ export default function Sui() {
         }
       },
       true,
-      document.getElementById('modalAnchor')
+      document.getElementById('modalAnchor'),
+      {
+        footerConfigOverride: {
+          linkTarget: '_top'
+        }
+      }
     )
 
     setAdapter(adapter)
