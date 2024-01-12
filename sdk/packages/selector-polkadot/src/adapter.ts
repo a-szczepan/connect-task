@@ -7,6 +7,7 @@ import {
 import {
   NightlyConnectSelectorModal,
   XMLOptions,
+  FooterConfig,
   clearRecentStandardWalletForNetwork,
   clearSessionIdForNetwork,
   getRecentStandardWalletForNetwork,
@@ -147,6 +148,7 @@ export class NightlyConnectAdapter implements Injected {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
+      footerConfigOverride?: Partial<FooterConfig>
     }
   ) => {
     if (!useEagerConnect) {
@@ -166,7 +168,8 @@ export class NightlyConnectAdapter implements Injected {
       anchorRef,
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
-      uiOverrides?.qrConfigOverride
+      uiOverrides?.qrConfigOverride,
+      uiOverrides?.footerConfigOverride
     )
 
     const [app, metadataWallets] = await NightlyConnectAdapter.initApp(appInitData)
@@ -190,6 +193,7 @@ export class NightlyConnectAdapter implements Injected {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
+      footerConfigOverride?: Partial<FooterConfig>
     }
   ) => {
     if (!useEagerConnect) {
@@ -209,7 +213,8 @@ export class NightlyConnectAdapter implements Injected {
       anchorRef,
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
-      uiOverrides?.qrConfigOverride
+      uiOverrides?.qrConfigOverride,
+      uiOverrides?.footerConfigOverride
     )
 
     adapter._loading = true
@@ -239,7 +244,8 @@ export class NightlyConnectAdapter implements Injected {
     uiOverrides?: {
       variablesOverride?: object
       stylesOverride?: string
-      qrConfigOverride?: Partial<XMLOptions>
+      qrConfigOverride?: Partial<XMLOptions>,
+      footerConfigOverride?: Partial<FooterConfig>
     }
   ) => {
     if (!useEagerConnect) {
@@ -259,7 +265,8 @@ export class NightlyConnectAdapter implements Injected {
       anchorRef,
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
-      uiOverrides?.qrConfigOverride
+      uiOverrides?.qrConfigOverride,
+      uiOverrides?.footerConfigOverride
     )
 
     return adapter
